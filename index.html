@@ -38,10 +38,11 @@
                 const regex = /\[(.*?)\] (.*?): Update: ([0-9-/]+)/g;
                 let match;
                 const updates = [];
-
+                let updatedate;
                 while ((match = regex.exec(inputText)) !== null) {
                 const date = match[1];
                 const time = match[2];
+                updatedate = match[1]
                 const author = match[3];
                 const updateStartIndex = match.index + match[0].length + 1;
                 const updateEndIndex =
@@ -60,7 +61,7 @@
                 }
                 console.log(formattedText);
                 if(formattedText !==""){
-                    document.getElementById('resultText').innerHTML = formattedText;
+                    document.getElementById('resultText').innerHTML = "========================\nTeam Update : "+ updatedate +"\n========================\n\n"+ formattedText+"\n========================";
                 }
         }
         </script>
